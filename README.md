@@ -6,17 +6,17 @@ This guide will help you connect your local terminal to GitHub using SSH. Follow
 
 First, go to the `.ssh` directory:
 
-\```bash
+ ```bash
 cd ~/.ssh
-\```
+ ```
 
 ## Step 2: Generate RSA SSH Key Pair
 
 Generate a new RSA SSH key pair:
 
-\```bash
+ ```bash
 ssh-keygen -t rsa -b 4096 -C "youremail@gmail.com"
-\```
+ ```
 
 - When prompted to enter a file name, remember it for later use.
 - You will get two files: a private key and a public key.
@@ -25,9 +25,9 @@ ssh-keygen -t rsa -b 4096 -C "youremail@gmail.com"
 
 1. Open the `.pub` file (public key) and copy the key:
 
-\```bash
+ ```bash
 cat ~/.ssh/yourkeyfilename.pub
-\```
+ ```
 
 2. Go to your GitHub account settings:
    - Navigate to **Settings** > **SSH and GPG keys**.
@@ -40,33 +40,33 @@ cat ~/.ssh/yourkeyfilename.pub
 
 Start the SSH agent in the background:
 
-\```bash
+ ```bash
 eval "$(ssh-agent -s)"
-\```
+ ```
 
 ## Step 5: Add SSH Key to SSH Agent
 
 Add your SSH key to the agent:
 
-\```bash
+ ```bash
 ssh-add ~/.ssh/yourkeyfilename
-\```
+ ```
 
 ## Step 6: Verify the SSH Key
 
 Check if the SSH key is added:
 
-\```bash
+ ```bash
 ssh-add -l
-\```
+ ```
 
 ## Step 7: Test SSH Connection to GitHub
 
 Test your SSH connection to GitHub:
 
-\```bash
+ ```bash
 ssh -T git@github.com
-\```
+ ```
 
 You should see a message like:
 
@@ -83,12 +83,12 @@ If you encounter any issues, ensure you:
 2. Specified the correct path to your private key file.
 3. Have the correct permissions set for your SSH key files:
 
-\```bash
+ ```bash
 chmod 600 ~/.ssh/yourkeyfilename
 chmod 600 ~/.ssh/yourkeyfilename.pub
-\```
+ ```
 
-For more detailed troubleshooting, refer to GitHub\'s [SSH key documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
+For more detailed troubleshooting, refer to GitHub 's [SSH key documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
 
 ---
 
