@@ -1,8 +1,11 @@
 # Connect Terminal to GitHub using SSH
 
 This guide will help you connect your local terminal to GitHub using SSH. Follow the steps below to set up SSH authentication.
-
-## Step 1: Navigate to SSH Directory
+## Step1: Create Directory 
+ ```bash
+mkdir ~/.ssh
+ ```
+## Step 2: Navigate to SSH Directory
 
 First, go to the `.ssh` directory:
 
@@ -10,7 +13,7 @@ First, go to the `.ssh` directory:
 cd ~/.ssh
  ```
 
-## Step 2: Generate RSA SSH Key Pair
+## Step 3: Generate RSA SSH Key Pair
 
 Generate a new RSA SSH key pair:
 
@@ -21,7 +24,7 @@ ssh-keygen -t rsa -b 4096 -C "youremail@gmail.com"
 - When prompted to enter a file name, remember it for later use.
 - You will get two files: a private key and a public key.
 
-## Step 3: Add SSH Key to GitHub
+## Step 4: Add SSH Key to GitHub
 
 1. Open the `.pub` file (public key) and copy the key:
 
@@ -36,7 +39,7 @@ cat ~/.ssh/yourkeyfilename.pub
    - Paste the copied SSH key into the "Key" field.
    - Click **Add SSH key**.
 
-## Step 4: Start the SSH Agent
+## Step 5: Start the SSH Agent
 
 Start the SSH agent in the background:
 
@@ -44,7 +47,7 @@ Start the SSH agent in the background:
 eval "$(ssh-agent -s)"
  ```
 
-## Step 5: Add SSH Key to SSH Agent
+## Step 6: Add SSH Key to SSH Agent
 
 Add your SSH key to the agent:
 
@@ -52,7 +55,7 @@ Add your SSH key to the agent:
 ssh-add ~/.ssh/yourkeyfilename
  ```
 
-## Step 6: Verify the SSH Key
+## Step 7: Verify the SSH Key
 
 Check if the SSH key is added:
 
@@ -60,7 +63,7 @@ Check if the SSH key is added:
 ssh-add -l
  ```
 
-## Step 7: Test SSH Connection to GitHub
+## Step 8: Test SSH Connection to GitHub
 
 Test your SSH connection to GitHub:
 
